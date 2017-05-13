@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+
 public class Search<T> {
 
 	public boolean searchBinary(List<T> list, T key, Comparator<T> c){
