@@ -1,5 +1,6 @@
 package algo.sort;
 
+import utils.ArrayUtils;
 
 /*
  *  From  i= 1 -> n, insert a[i] to sorted array before i.

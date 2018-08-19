@@ -1,6 +1,6 @@
 package algo.search;
 
-import algo.sort.ArrayUtils;
+import utils.ArrayUtils;
 
 /**
 *
