@@ -33,6 +33,47 @@ public class TripletArray {
 		
 		ArrayUtils.printArray(arr);
 		
+		
+		for (int i = 0; i < arr.length - 2; i++) {
+			
+			int j = i+1;
+			int k = arr.length - 1;
+			
+			while (j  < k) {
+				
+					if (arr[j] + arr[i] + arr[k] == v) {
+						System.out.println(arr[i] + " - " +   arr[j] + " - " + arr[k]);
+						result = true;
+						
+						if (arr[j] == arr[j+1]) {
+							j++;
+						} else {
+							k--;
+						}
+					}
+					
+					else if (arr[j] + arr[i] + arr[k] > v) {
+						k --;
+					}
+					
+					else if (arr[j] + arr[i] + arr[k] < v) {
+						j ++;
+					}
+				
+			}
+			
+		}
+			
+		return result;
+	}
+	
+	public static boolean isTripletArrayWrongSolution(int[] arr, int v) {
+		
+		boolean result = false; 
+		Arrays.sort(arr);
+		
+		ArrayUtils.printArray(arr);
+		
 		int i = 0; 
 		int j = arr.length - 1;
 		
@@ -64,7 +105,25 @@ public class TripletArray {
 		
 		return result;
 	}
-
+	
+	public static boolean isTripletArraySolution1(int[] arr, int v) {
+		
+		boolean result = false;
+		for (int i = 0; i < arr.length - 2; i ++) {
+			for (int j = i + 1; j < arr.length-1; j ++) {
+				for (int k = j + 1; k < arr.length; k ++) {
+					
+					if (arr[i] + arr[j] + arr[k] == v) {
+						System.out.println(arr[i] + " - " +   arr[k] + " - " + arr[j]);
+						result = true;
+					}
+				}
+					
+			}
+		}
+			
+		return result;
+	}
 }
 
 
