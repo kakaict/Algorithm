@@ -12,7 +12,9 @@ public class QuickSort {
 	public static void main(String[] args) {
 
 		int[] arr  =  { 1, 12, 5, 26, 9,  14, 3, 7, 2 };
-
+		
+		ArrayUtils.printArray(arr);
+		
 		quickSort(arr, 0,  arr.length-1);
 		
 		ArrayUtils.printArray(arr);
@@ -25,6 +27,8 @@ public class QuickSort {
 			return;
 		
 		int p = arr[(i+j)/2];
+		
+		System.out.println("pivot : " + p);
 		
 		int x = i; 
 		int y = j;
