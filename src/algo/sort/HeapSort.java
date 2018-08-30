@@ -35,7 +35,7 @@ public class HeapSort {
 		 * Build heap array
 		 */
 		for (int i = arr.length/2 - 1; i >= 0; i--) {
-            heapifyV2(arr, i, arr.length);
+            heapify(arr, i, arr.length);
 		}
 		
 		ArrayUtils.printArray(arr);
@@ -81,25 +81,6 @@ public class HeapSort {
 		
 		return;
 	}
-	
-	public static void heapifyV2(int arr[],  int i , int n){
-	    int max = i;  
-	    int l = 2*i + 1; 
-	    int r = 2*i + 2;
-	 
-	    if (l < n && arr[l] > arr[max])
-	    		max = l;
-	 
-	    if (r < n && arr[r] > arr[max])
-	    		max = r;
-	 
-	    if (max != i)
-	    {
-	        swap(arr,i, max);
-	        heapifyV2(arr, max, n);
-	    }
-	}
-
 	
 	private static void swap(int []arr, int i, int j) {
 		int tem = arr[i];
