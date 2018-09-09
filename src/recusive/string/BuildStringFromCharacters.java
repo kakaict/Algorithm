@@ -1,6 +1,5 @@
 package recusive.string;
 
-import java.util.List;
 
 /**
  * Created by khaitq
@@ -16,13 +15,12 @@ import java.util.List;
     Output: aa bb ab ba
  */
 
-public class BuildStringFromCharaters {
+public class BuildStringFromCharacters {
 
     public static  void  main(String args[] ) {
 
         char [] set = { 'a', 'b' , 'c' };
         int n = 3;
-
 
         print("", set, n);
 
