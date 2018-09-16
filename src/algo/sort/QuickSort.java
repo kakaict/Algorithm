@@ -29,8 +29,8 @@ public class QuickSort {
 		int p = arr[(i+j)/2];
 		
 		System.out.println("pivot : " + p);
-		
-		int x = i; 
+
+		int x = i;
 		int y = j;
 		
 		while (x <= y) {
@@ -52,7 +52,7 @@ public class QuickSort {
 		
 		ArrayUtils.printArray(arr);
 
-		if (x < j) 
+		if (x < j)
 			quickSort(arr, x, j);
 		if (x > i)
 			quickSort(arr, i, y);
