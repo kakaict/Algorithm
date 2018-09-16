@@ -28,63 +28,73 @@ public class ExpressionTarget {
         String s = "262";
         int target = 10;
 
-        int v = Character.getNumericValue(s.toCharArray()[0]);
-
-        printExpression(s.toCharArray(),1, v, 1, target, v + "");
-        printExpression(s.toCharArray(),1, v, 2, target, v + "");
-        printExpression(s.toCharArray(),1, v, 3, target, v + "");
+        printExpression(s.toCharArray(), 1, 10, Character.getNumericValue(s.charAt(0)) + "");
     }
 
 
-    //wrong solution
-    public static void printExpression(char [] chars, int i, int v, int oper, int target, String s) {
+    //bad solution
+    public static void printExpression(char [] chars, int i,  int target, String s) {
 
-        if (i < chars.length) {
+        char [] expr = s.toCharArray();
 
-            int c = Character.getNumericValue(chars[i]);
+        if (i == chars.length  && calculateFromEx(s) == target ) {
+            System.out.println(s);
 
-            if (i == chars.length - 1) {
-                if (oper == 1 && c + v == target) {
-                    System.out.println(s + "+" + c);
-                }
-                if (oper == 2 && v - c == target) {
-                    System.out.println(s + "-" + c);
-                }
-                if (oper == 3 && c * v == target) {
-                    System.out.println(s + "*" + c);
-                }
+        } else if (i < chars.length ) {
 
-            } else {
+                int j = i+1;
 
-                int  j = i + 1;
+                int c = Character.getNumericValue(chars[i]);
 
-                printExpression(chars, j, v + c, 1, target, i == 0 ?  s + "" + c  : s + "+" + c);
-                printExpression(chars, j, v + c, 2, target, i == 0 ?  s + "" + c  : s + "+" + c);
-                printExpression(chars, j, v + c, 3, target, i == 0 ?  s + "" + c  : s + "+" + c);
-
-                printExpression(chars, j, v - c, 1, target, i == 0 ?  s + "" + c  : s + "-" + c);
-                printExpression(chars, j, v - c, 2, target, i == 0 ?  s + "" + c  : s + "-" + c);
-                printExpression(chars, j, v - c, 3, target, i == 0 ?  s + "" + c  : s + "-" + c);
-
-                printExpression(chars, j, i== 0? c : v * c, 1, target, i == 0 ?  s + "" + c  : s + "*" + c);
-                printExpression(chars, j, i== 0? c : v * c, 2, target, i == 0 ?  s + "" + c  : s + "*" + c);
-                printExpression(chars, j, i== 0? c : v * c, 3, target, i == 0 ?  s + "" + c  : s + "*" + c);
-
-
-            }
+                printExpression(chars, j, target,  i == 0 ?  s + "" + c  : s + "+" + c);
+                printExpression(chars, j, target,  i == 0 ?  s + "" + c  : s + "-" + c);
+                printExpression(chars, j, target,  i == 0 ?  s + "" + c  : s + "*" + c);
 
         }
 
+
     }
 
 
 
+    /*
 
+        calculate a Math formular from a String, without using Strings APIs (Char APIs are OK)
+        ex : "2+3*5-1" = 16
+     */
 
+    private static  int calculateFromEx(String s) {
 
+        int v = 0;
 
+        int[] values = new int[s.length()];
+        int k = 0;
 
+        for (int i = 0; i < s.length(); i++) {
 
+            if (s.charAt(i) == '*' ) {
+
+                int temp =  (i-2 > 0 && s.charAt(i-2) == '-') ? -Character.getNumericValue(s.charAt(i - 1)): Character.getNumericValue(s.charAt(i - 1));
+
+                int j  = i;
+                while (j < s.length() && s.charAt(j) == '*') {
+                    temp =   temp * Character.getNumericValue(s.charAt(j + 1));
+                    j = j +2;
+                }
+                values[k++] = temp;
+                i = j;
+
+            } else if (Character.isDigit(s.charAt(i)) && (i + 1 == s.length() || s.charAt(i+1) == '-' ||s.charAt(i+1) == '+' )) {
+                values[k++] = (i > 0 && s.charAt(i-1) == '-') ? - Character.getNumericValue(s.charAt(i)) : Character.getNumericValue(s.charAt(i));
+            }
+
+        }
+        for (int i :    values) {
+           v += i;
+        }
+
+        return v;
+    }
 
 
 
