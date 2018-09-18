@@ -43,7 +43,7 @@ public class MergeSortedLists {
     /*
      *  merge 2 sorted arrays
      */
-    private static int[] merge2array(int [] arr1, int[] arr2) {
+    public static int[] merge2array(int [] arr1, int[] arr2) {
 
         int size = arr1.length +  arr2.length;
         int [] result = new int[size];
