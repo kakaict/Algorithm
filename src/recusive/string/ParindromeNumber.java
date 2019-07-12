@@ -13,9 +13,22 @@ public class ParindromeNumber {
 		System.out.println(isParindromeNumber(12321));
 
         System.out.println(isParindromeNumber(20502));
+        
+        System.out.println(parindrome(13531));
+
 		
 	}
 	
+	
+	public static boolean parindrome(int n) {
+		String s = n +"";
+		for (int i = 0; i < s.length()/2; i++) {
+			if (s.charAt(i) != s.charAt(s.length() - 1 - i)) 
+				return false;
+		}
+		
+		return true;
+	}
 	
 	/*
 	 * 24542 is a parindrome number : x = reverse(x)
