@@ -2,6 +2,8 @@ package algo.sort;
 
 import utils.ArrayUtils;
 
+import java.util.Arrays;
+
 /**
 *
 * @author khaitq on 16 août 2018

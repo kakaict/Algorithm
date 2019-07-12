@@ -11,6 +11,9 @@ public class ReverseDigit {
 	public static void main(String[] args) {
 
 		System.out.println(reversDigits(231));
+
+
+
 	}
 	
 	

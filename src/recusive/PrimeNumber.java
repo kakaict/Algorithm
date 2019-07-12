@@ -23,8 +23,13 @@ public class PrimeNumber {
 			return false;
 		
 		return isPrimeNumber(a, ++i);
+
+		
 	}
 	
 }
 
 
+enum CardColor {
+	Spade, Diamond, Club, Heart
+}
